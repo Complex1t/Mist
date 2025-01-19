@@ -1,0 +1,30 @@
+<configuration xmlns="https://github.com/qoomon/maven-git-versioning-extension"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="https://github.com/qoomon/maven-git-versioning-extension https://qoomon.github.io/maven-git-versioning-extension/configuration-7.0.0.xsd">
+    <refs>
+        <!-- Master Branches -->
+        <!-- Format: <version> -->
+        <!-- Must manually increase version number -->
+        <!-- SNAPSHOT version as library is constantly updated -->
+        <ref type="branch">
+            <pattern>main</pattern>
+            <version>${version.release}-SNAPSHOT</version>
+        </ref>
+        <ref type="branch">
+            <pattern>master</pattern>
+            <version>${version.release}-SNAPSHOT</version>
+        </ref>
+
+        <!-- Development Branches -->
+        <!-- Format: <version>-DEV -->
+        <ref type="branch">
+            <pattern>development</pattern>
+            <version>${version.release}-DEV</version>
+        </ref>
+        <!-- Format: <branch_name>-SNAPSHOT -->
+        <ref type="branch">
+            <pattern>.+</pattern>
+            <version>${ref.slug}-SNAPSHOT</version>
+        </ref>
+    </refs>
+</configuration>
